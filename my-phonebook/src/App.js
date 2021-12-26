@@ -11,7 +11,7 @@ class App extends Component {
       { id: "id-3", name: "Eden Clements", number: "645-17-79" },
       { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
     ],
-    filter: "",
+    filter: [],
   };
 
   onChangeState = (newContacts) => {
@@ -20,19 +20,25 @@ class App extends Component {
     }));
   };
 
+  onFilter = (word) => {
+    this.setState(() => ({ filter: word.toUpperCase() }));
+  };
+
   render() {
     const {
-      state: { contacts },
+      state: { contacts, filter },
       onChangeState,
+      onFilter,
     } = this;
 
+    console.log(filter);
     return (
       <>
         <h1>Phonebook</h1>
         <ContactForm contacts={contacts} onChangeState={onChangeState} />
         <h2>Contacts</h2>
-        <Filter />
-        <ContactList contacts={contacts} />
+        <Filter onFilter={onFilter} />
+        <ContactList contacts={contacts} filter={filter} />
       </>
     );
   }
