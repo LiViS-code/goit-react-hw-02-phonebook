@@ -63,7 +63,6 @@ class ContactForm extends Component {
               onChange={handleInput}
             />
           </label>
-          <br />
           <label>
             Number
             <input
@@ -77,7 +76,6 @@ class ContactForm extends Component {
               onChange={handleInput}
             />
           </label>
-          <br />
           <button type="submit" disabled={!name || !number}>
             Add contact
           </button>
