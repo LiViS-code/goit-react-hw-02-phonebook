@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Container } from "./Filter.styled";
+import { Input, Label } from "./ContactForm.styled";
 
 class Filter extends Component {
   handleInput = (e) => {
@@ -10,12 +12,15 @@ class Filter extends Component {
   render() {
     const { handleInput } = this;
     return (
-      <>
-        <label>
-          Find contacts by name
-          <input type="text" name="filter" onChange={handleInput}></input>
-        </label>
-      </>
+      <Container>
+        <Label htmlFor="inputFilter">Find contacts by name</Label>
+        <Input
+          id="inputFilter"
+          type="text"
+          name="filter"
+          onChange={handleInput}
+        ></Input>
+      </Container>
     );
   }
 }

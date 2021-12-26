@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
+import { FormContacts, Label, Input, Button } from "./ContactForm.styled";
 
 const INITIAL_VALUE = {
   name: "",
@@ -49,37 +50,39 @@ class ContactForm extends Component {
 
     return (
       <>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name
-            <input
-              type="text"
-              name="name"
-              value={name}
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              placeholder="Enter contact name"
-              required
-              onChange={handleInput}
-            />
-          </label>
-          <label>
-            Number
-            <input
-              type="tel"
-              name="number"
-              value={number}
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-              placeholder="Enter phone number"
-              required
-              onChange={handleInput}
-            />
-          </label>
-          <button type="submit" disabled={!name || !number}>
+        <FormContacts onSubmit={handleSubmit}>
+          <Label htmlFor="inputName">Name</Label>
+
+          <Input
+            id="inputName"
+            type="text"
+            name="name"
+            value={name}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            placeholder="Enter contact name"
+            required
+            onChange={handleInput}
+          />
+
+          <Label htmlFor="inputNumber">Number</Label>
+
+          <Input
+            id="inputNumber"
+            type="tel"
+            name="number"
+            value={number}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            placeholder="Enter phone number"
+            required
+            onChange={handleInput}
+          />
+
+          <Button type="submit" disabled={!name || !number}>
             Add contact
-          </button>
-        </form>
+          </Button>
+        </FormContacts>
       </>
     );
   }

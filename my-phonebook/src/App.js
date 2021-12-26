@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
+import { Container, Title, ContactsTitle } from "./App.styled";
 
 class App extends Component {
   state = {
@@ -44,13 +45,13 @@ class App extends Component {
     } = this;
 
     return (
-      <>
-        <h1>Phonebook</h1>
+      <Container>
+        <Title>Phonebook</Title>
         <ContactForm contacts={contacts} onChangeState={onChangeState} />
-        <h2>Contacts</h2>
+        <ContactsTitle>Contacts</ContactsTitle>
         <Filter onFilter={onFilter} />
         <ContactList contacts={contacts} filter={filter} onDelete={onDelete} />
-      </>
+      </Container>
     );
   }
 }

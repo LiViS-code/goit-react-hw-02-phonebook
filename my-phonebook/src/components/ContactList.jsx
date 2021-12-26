@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { ContastsList, ContactItem } from "./ContactList.styled";
+import { Button } from "./ContactForm.styled";
 class ContactList extends Component {
   render() {
     const { contacts, filter, onDelete } = this.props;
@@ -11,16 +13,16 @@ class ContactList extends Component {
     }
 
     return (
-      <ul>
+      <ContastsList>
         {filterContacts.map(({ id, name, number }) => (
-          <li key={id}>
+          <ContactItem key={id}>
             {name}: {number}{" "}
-            <button type="button" onClick={() => onDelete(id)}>
+            <Button type="button" onClick={() => onDelete(id)}>
               Delete
-            </button>
-          </li>
+            </Button>
+          </ContactItem>
         ))}
-      </ul>
+      </ContastsList>
     );
   }
 }
