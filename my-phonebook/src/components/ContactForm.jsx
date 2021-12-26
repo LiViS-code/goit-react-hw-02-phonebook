@@ -18,10 +18,22 @@ class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     const { contacts, onChangeState } = this.props;
+    if (this.matchCheck(name, contacts)) return this.alertMsg(name);
     contacts.push({ id: nanoid(), name: name, number: number });
     this.setState(() => ({ number: number }));
     onChangeState(contacts);
     this.reset();
+  };
+
+  matchCheck = (name, contacts) => {
+    for (let i = 0; i < contacts.length; i += 1) {
+      if (contacts[i].name === name) return true;
+    }
+    return false;
+  };
+
+  alertMsg = (name) => {
+    alert(`${name} is alredy in contacts`);
   };
 
   reset = () => {
