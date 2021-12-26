@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-
 class ContactList extends Component {
   render() {
+    const { contacts } = this.props;
     return (
-      <div>
-        <p>Контакт лист</p>
-      </div>
+      <ul>
+        {contacts.map(({ id, name, number }) => (
+          <li key={id}>
+            {name}: {number}
+          </li>
+        ))}
+      </ul>
     );
   }
 }

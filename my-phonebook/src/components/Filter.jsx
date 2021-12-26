@@ -3,9 +3,12 @@ import React, { Component } from "react";
 class Filter extends Component {
   render() {
     return (
-      <div>
-        <p>Фильтр</p>
-      </div>
+      <>
+        <label>
+          Find contacts by name
+          <input type="text" name="filter"></input>
+        </label>
+      </>
     );
   }
 }
