@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
 import { Container, Logo, Title, ContactsTitle, Message } from "./App.styled";
+import toastMsg from "./utils/toastMsg";
 import phonebook from "./img/phonebook.png";
 
 class App extends Component {
@@ -34,23 +34,15 @@ class App extends Component {
       if (contacts[i].id === id) {
         const name = contacts[i].name;
         contacts.splice(i, 1);
-        this.toastMsg(name);
+        this.alert(name, "info");
         break;
       }
     }
     this.onChangeState(contacts);
   };
 
-  toastMsg = (name) => {
-    toast.info(`${name} removed from contacts`, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+  alert = (name, type) => {
+    toastMsg(name, type);
   };
 
   render() {

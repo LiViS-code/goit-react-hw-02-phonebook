@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import { IconContext } from "react-icons";
+import toastMsg from "../utils/toastMsg";
 import { FcContacts, FcPhoneAndroid, FcAddDatabase } from "react-icons/fc";
 import { FormContacts, Label, Input, Button } from "./ContactForm.styled";
 
@@ -23,12 +23,12 @@ class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     const { contacts, onChangeState } = this.props;
-    if (this.matchCheck(name, contacts)) return this.toastMsg(name, "warn");
+    if (this.matchCheck(name, contacts)) return this.alert(name, "warn");
     contacts.push({ id: nanoid(), name: name, number: number });
     this.setState(() => ({ number: number }));
     onChangeState(contacts);
     this.reset();
-    this.toastMsg(name, "success");
+    this.alert(name, "success");
   };
 
   matchCheck = (name, contacts) => {
@@ -38,31 +38,8 @@ class ContactForm extends Component {
     return false;
   };
 
-  toastMsg = (name, type) => {
-    let msg = "";
-    switch (type) {
-      case "success":
-        msg = `${name} was successfully added to contacts`;
-        break;
-      case "warn":
-        msg = `${name} is alredy in contacts`;
-        break;
-      case "info":
-        msg = `${name} removed from contacts`;
-        break;
-      default:
-        break;
-    }
-
-    toast[type](msg, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+  alert = (name, type) => {
+    toastMsg(name, type);
   };
 
   reset = () => {
