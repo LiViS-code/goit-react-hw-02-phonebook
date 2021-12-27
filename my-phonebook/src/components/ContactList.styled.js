@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { theme } from "../constants/Theme";
+
+const { spacing } = theme;
 
 export const ContastsList = styled.ul`
   padding-left: 0;
@@ -10,6 +13,6 @@ export const ContactItem = styled.li`
   justify-content: space-between;
   align-items: center;
   &:not(:last-child) {
-    margin-bottom: ${({ theme }) => theme.spacing(4)};
+    margin-bottom: ${spacing(4)};
   }
 `;

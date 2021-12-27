@@ -1,56 +1,71 @@
 import styled from "styled-components";
+import { theme } from "../constants/Theme";
+
+const {
+  colors: {
+    primaryColor,
+    reverseColor,
+    backgroundColorForm,
+    outlineColor,
+    borderDisabledColor,
+    backgroundDisabledColor,
+    disabledColor,
+  },
+  spacing,
+  timing,
+  timingFunction,
+} = theme;
 
 export const FormContacts = styled.form`
   width: 90%;
-  margin-bottom: ${({ theme }) => theme.spacing(4)};
+  margin-bottom: ${spacing(4)};
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: ${({ theme }) => theme.spacing(4)};
-  border: 1px solid ${({ theme }) => theme.colors.primaryColor};
-  border-radius: ${({ theme }) => theme.spacing(2)};
-  background-color: ${({ theme }) => theme.colors.backgroundColorForm}; ;
+  padding: ${spacing(4)};
+  border: 1px solid ${primaryColor};
+  border-radius: ${spacing(2)};
+  background-color: ${backgroundColorForm}; ;
 `;
 
 export const Label = styled.label`
-  margin-bottom: ${({ theme }) => theme.spacing(1)};
+  margin-bottom: ${spacing(1)};
 `;
 
 export const Input = styled.input`
-  padding: ${({ theme }) => theme.spacing(2)};
-  margin-bottom: ${({ theme }) => theme.spacing(4)};
+  padding: ${spacing(2)};
+  margin-bottom: ${spacing(4)};
   border: none;
-  border-radius: ${({ theme }) => theme.spacing(2)};
-  transition: ${({ theme }) =>
-    `outline ${theme.timing} ${theme.timingFunction}`};
+  border-radius: ${spacing(2)};
+  transition: outline ${timing} ${timingFunction};
 
   &:hover,
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.outlineColor};
+    outline: 2px solid ${outlineColor};
   }
 `;
 
 export const Button = styled.button`
-  padding: ${({ theme }) => theme.spacing(2)};
+  padding: ${spacing(2)};
   border: none;
-  border-radius: ${({ theme }) => theme.spacing(2)};
+  border-radius: ${spacing(2)};
   color: inherit;
-  outline: 1px solid ${({ theme }) => theme.colors.primaryColor};
-  transition: ${({ theme }) => `color ${theme.timing} ${theme.timingFunction}`},
-    ${({ theme }) => `background-color ${theme.timing} ${theme.timingFunction}`};
+  outline: 1px solid ${primaryColor};
+  transition: color ${timing} ${timingFunction},
+    background-color ${timing} ${timingFunction};
 
   &:hover,
   &:focus {
     cursor: pointer;
-    color: ${({ theme }) => theme.colors.reverseColor};
-    background-color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${reverseColor};
+    background-color: ${primaryColor};
   }
 
   &:disabled,
   &[disabled] {
     cursor: auto;
-    border: 1px solid ${({ theme }) => theme.colors.borderDisabledColor};
-    background-color: ${({ theme }) => theme.colors.backgroundDisabledColor};
-    color: ${({ theme }) => theme.colors.disabledColor};
+    border: 1px solid ${borderDisabledColor};
+    background-color: ${backgroundDisabledColor};
+    color: ${disabledColor};
   }
 `;
