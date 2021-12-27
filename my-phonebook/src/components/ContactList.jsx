@@ -20,7 +20,7 @@ class ContactList extends Component {
           <ContactItem key={id}>
             <ContactNote>
               {name}:{" "}
-              <a href={"lel:+" + parseInt(number.replace(/\D+/g, ""))}>
+              <a href={"tel:+" + parseInt(number.replace(/\D+/g, ""))}>
                 {number}
               </a>
             </ContactNote>
