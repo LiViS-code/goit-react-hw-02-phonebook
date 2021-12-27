@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { IconContext } from "react-icons";
 import { FcDeleteDatabase } from "react-icons/fc";
 import { ContastsList, ContactItem } from "./ContactList.styled";
 import { Button } from "./ContactForm.styled";
@@ -23,7 +24,14 @@ class ContactList extends Component {
               onClick={() => onDelete(id)}
               title="Delete this contact"
             >
-              <FcDeleteDatabase />
+              <IconContext.Provider
+                value={{
+                  size: "1.3em",
+                  style: { verticalAlign: "middle" },
+                }}
+              >
+                <FcDeleteDatabase />
+              </IconContext.Provider>
             </Button>
           </ContactItem>
         ))}

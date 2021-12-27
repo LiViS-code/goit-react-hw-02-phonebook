@@ -39,6 +39,10 @@ export const Input = styled.input`
   border-radius: ${spacing(2)};
   transition: outline ${timing} ${timingFunction};
 
+  &[name="number"] {
+    margin-bottom: ${spacing(8)};
+  }
+
   &:hover,
   &:focus {
     outline: 2px solid ${outlineColor};

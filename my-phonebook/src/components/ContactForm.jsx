@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
+import { IconContext } from "react-icons";
 import { FcContacts, FcPhoneAndroid, FcAddDatabase } from "react-icons/fc";
 import { FormContacts, Label, Input, Button } from "./ContactForm.styled";
 
@@ -86,8 +87,15 @@ class ContactForm extends Component {
         />
 
         <Button type="submit" disabled={!name || !number}>
-          <FcAddDatabase />
           Add contact
+          <IconContext.Provider
+            value={{
+              size: "1.5em",
+              style: { verticalAlign: "middle", marginLeft: "16px" },
+            }}
+          >
+            <FcAddDatabase />
+          </IconContext.Provider>
         </Button>
       </FormContacts>
     );
