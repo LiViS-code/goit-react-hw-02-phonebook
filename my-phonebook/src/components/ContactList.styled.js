@@ -16,3 +16,8 @@ export const ContactItem = styled.li`
     margin-bottom: ${spacing(4)};
   }
 `;
+
+export const ContactNote = styled.span`
+  margin-right: ${spacing(3)};
+  font-size: 0.85em;
+`;

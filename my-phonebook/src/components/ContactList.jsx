@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { IconContext } from "react-icons";
 import { FcDeleteDatabase } from "react-icons/fc";
-import { ContastsList, ContactItem } from "./ContactList.styled";
+import { ContastsList, ContactItem, ContactNote } from "./ContactList.styled";
 import { Button } from "./ContactForm.styled";
 class ContactList extends Component {
   render() {
@@ -18,7 +18,12 @@ class ContactList extends Component {
       <ContastsList>
         {filterContacts.map(({ id, name, number }) => (
           <ContactItem key={id}>
-            {name}: {number}{" "}
+            <ContactNote>
+              {name}:{" "}
+              <a href={"lel:+" + parseInt(number.replace(/\D+/g, ""))}>
+                {number}
+              </a>
+            </ContactNote>
             <Button
               type="button"
               onClick={() => onDelete(id)}

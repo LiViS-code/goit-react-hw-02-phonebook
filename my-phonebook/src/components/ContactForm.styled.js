@@ -33,7 +33,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  padding: ${spacing(2)};
+  padding: ${spacing(2)} ${spacing(3)};
   margin-bottom: ${spacing(4)};
   border: none;
   border-radius: ${spacing(2)};
@@ -50,7 +50,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  padding: ${spacing(2)};
+  padding: ${spacing(1)} ${spacing(2)};
   border: none;
   border-radius: ${spacing(2)};
   color: inherit;
