@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { IconContext } from "react-icons";
 import { FcContacts, FcPhoneAndroid, FcAddDatabase } from "react-icons/fc";
 import { FormContacts, Label, Input, Button } from "./ContactForm.styled";
@@ -21,11 +23,12 @@ class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     const { contacts, onChangeState } = this.props;
-    if (this.matchCheck(name, contacts)) return this.alertMsg(name);
+    if (this.matchCheck(name, contacts)) return this.toastMsg(name, "warn");
     contacts.push({ id: nanoid(), name: name, number: number });
     this.setState(() => ({ number: number }));
     onChangeState(contacts);
     this.reset();
+    this.toastMsg(name, "success");
   };
 
   matchCheck = (name, contacts) => {
@@ -35,8 +38,31 @@ class ContactForm extends Component {
     return false;
   };
 
-  alertMsg = (name) => {
-    alert(`${name} is alredy in contacts`);
+  toastMsg = (name, type) => {
+    let msg = "";
+    switch (type) {
+      case "success":
+        msg = `${name} was successfully added to contacts`;
+        break;
+      case "warn":
+        msg = `${name} is alredy in contacts`;
+        break;
+      case "info":
+        msg = `${name} removed from contacts`;
+        break;
+      default:
+        break;
+    }
+
+    toast[type](msg, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   reset = () => {
@@ -56,7 +82,6 @@ class ContactForm extends Component {
           <FcContacts />
           Name
         </Label>
-
         <Input
           id="inputName"
           type="text"
@@ -68,12 +93,10 @@ class ContactForm extends Component {
           required
           onChange={handleInput}
         />
-
         <Label htmlFor="inputNumber">
           <FcPhoneAndroid />
           Number
         </Label>
-
         <Input
           id="inputNumber"
           type="tel"
@@ -85,7 +108,6 @@ class ContactForm extends Component {
           required
           onChange={handleInput}
         />
-
         <Button type="submit" disabled={!name || !number}>
           Add contact
           <IconContext.Provider
@@ -97,6 +119,7 @@ class ContactForm extends Component {
             <FcAddDatabase />
           </IconContext.Provider>
         </Button>
+        <ToastContainer />
       </FormContacts>
     );
   }
