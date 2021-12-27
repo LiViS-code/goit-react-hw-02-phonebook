@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FcFilledFilter } from "react-icons/fc";
 import { Container } from "./Filter.styled";
 import { Input, Label } from "./ContactForm.styled";
 
@@ -13,7 +14,10 @@ class Filter extends Component {
     const { handleInput } = this;
     return (
       <Container>
-        <Label htmlFor="inputFilter">Find contacts by name</Label>
+        <Label htmlFor="inputFilter">
+          <FcFilledFilter />
+          Find contacts by name
+        </Label>
         <Input
           id="inputFilter"
           type="text"

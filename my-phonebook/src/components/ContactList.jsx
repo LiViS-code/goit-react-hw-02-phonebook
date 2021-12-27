@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FcDeleteDatabase } from "react-icons/fc";
 import { ContastsList, ContactItem } from "./ContactList.styled";
 import { Button } from "./ContactForm.styled";
 class ContactList extends Component {
@@ -17,8 +18,12 @@ class ContactList extends Component {
         {filterContacts.map(({ id, name, number }) => (
           <ContactItem key={id}>
             {name}: {number}{" "}
-            <Button type="button" onClick={() => onDelete(id)}>
-              Delete
+            <Button
+              type="button"
+              onClick={() => onDelete(id)}
+              title="Delete this contact"
+            >
+              <FcDeleteDatabase />
             </Button>
           </ContactItem>
         ))}

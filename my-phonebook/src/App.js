@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
-import { Container, Title, ContactsTitle, Message } from "./App.styled";
+import { Container, Logo, Title, ContactsTitle, Message } from "./App.styled";
+import phonebook from "./img/phonebook.png";
 
 class App extends Component {
   state = {
@@ -46,7 +47,10 @@ class App extends Component {
 
     return (
       <Container>
-        <Title>Phonebook</Title>
+        <Title>
+          <Logo src={phonebook} alt="fonebook" width="50px" />
+          Phonebook
+        </Title>
         <ContactForm contacts={contacts} onChangeState={onChangeState} />
         {contacts.length ? (
           <>

@@ -21,6 +21,11 @@ export const Container = styled.div`
   box-shadow: ${boxShadow};
 `;
 
+export const Logo = styled.img`
+  width: 50px;
+  margin-right: ${spacing(2)};
+`;
+
 export const Title = styled.h1`
   margin-top: 0;
   margin-bottom: ${spacing(4)};

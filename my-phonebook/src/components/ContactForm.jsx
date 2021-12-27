@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
+import { FcContacts, FcPhoneAndroid, FcAddDatabase } from "react-icons/fc";
 import { FormContacts, Label, Input, Button } from "./ContactForm.styled";
 
 const INITIAL_VALUE = {
@@ -49,41 +50,46 @@ class ContactForm extends Component {
     } = this;
 
     return (
-      <>
-        <FormContacts onSubmit={handleSubmit}>
-          <Label htmlFor="inputName">Name</Label>
+      <FormContacts onSubmit={handleSubmit}>
+        <Label htmlFor="inputName">
+          <FcContacts />
+          Name
+        </Label>
 
-          <Input
-            id="inputName"
-            type="text"
-            name="name"
-            value={name}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            placeholder="Enter contact name"
-            required
-            onChange={handleInput}
-          />
+        <Input
+          id="inputName"
+          type="text"
+          name="name"
+          value={name}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          placeholder="Enter contact name"
+          required
+          onChange={handleInput}
+        />
 
-          <Label htmlFor="inputNumber">Number</Label>
+        <Label htmlFor="inputNumber">
+          <FcPhoneAndroid />
+          Number
+        </Label>
 
-          <Input
-            id="inputNumber"
-            type="tel"
-            name="number"
-            value={number}
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            placeholder="Enter phone number"
-            required
-            onChange={handleInput}
-          />
+        <Input
+          id="inputNumber"
+          type="tel"
+          name="number"
+          value={number}
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          placeholder="Enter phone number"
+          required
+          onChange={handleInput}
+        />
 
-          <Button type="submit" disabled={!name || !number}>
-            Add contact
-          </Button>
-        </FormContacts>
-      </>
+        <Button type="submit" disabled={!name || !number}>
+          <FcAddDatabase />
+          Add contact
+        </Button>
+      </FormContacts>
     );
   }
 }
