@@ -45,4 +45,12 @@ export const Button = styled.button`
     color: ${({ theme }) => theme.colors.reverseColor};
     background-color: ${({ theme }) => theme.colors.primaryColor};
   }
+
+  &:disabled,
+  &[disabled] {
+    cursor: auto;
+    border: 1px solid ${({ theme }) => theme.colors.borderDisabledColor};
+    background-color: ${({ theme }) => theme.colors.backgroundDisabledColor};
+    color: ${({ theme }) => theme.colors.disabledColor};
+  }
 `;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
-import { Container, Title, ContactsTitle } from "./App.styled";
+import { Container, Title, ContactsTitle, Message } from "./App.styled";
 
 class App extends Component {
   state = {
@@ -59,7 +59,7 @@ class App extends Component {
             />
           </>
         ) : (
-          <></>
+          <Message>You have no saved contacts</Message>
         )}
       </Container>
     );

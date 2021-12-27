@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  font-family: "Poppins", sans-serif;
   width: 85%;
   max-width: 320px;
   min-width: 300px;
@@ -23,4 +24,8 @@ export const ContactsTitle = styled.h2`
   margin-top: 0;
   margin-bottom: ${({ theme }) => theme.spacing(4)};
   font-size: 1.4em;
+`;
+
+export const Message = styled.p`
+  text-align: center;
 `;
