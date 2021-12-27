@@ -48,9 +48,19 @@ class App extends Component {
       <Container>
         <Title>Phonebook</Title>
         <ContactForm contacts={contacts} onChangeState={onChangeState} />
-        <ContactsTitle>Contacts</ContactsTitle>
-        <Filter onFilter={onFilter} />
-        <ContactList contacts={contacts} filter={filter} onDelete={onDelete} />
+        {contacts.length ? (
+          <>
+            <ContactsTitle>Contacts</ContactsTitle>
+            <Filter onFilter={onFilter} />
+            <ContactList
+              contacts={contacts}
+              filter={filter}
+              onDelete={onDelete}
+            />
+          </>
+        ) : (
+          <></>
+        )}
       </Container>
     );
   }
