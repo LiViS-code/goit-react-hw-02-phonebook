@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import ContactForm from "./components/ContactForm";
-import ContactList from "./components/ContactList";
-import Filter from "./components/Filter";
+import ContactForm from "./components/ContactForm/ContactForm";
+import ContactList from "./components/ContactList/ContactList";
+import Filter from "./components/Filter/Filter";
 import { Container, Logo, Title, ContactsTitle, Message } from "./App.styled";
 import toastMsg from "./utils/toastMsg";
 import phonebook from "./img/phonebook.png";

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FcFilledFilter } from "react-icons/fc";
 import { Container } from "./Filter.styled";
-import { Input, Label } from "./ContactForm.styled";
+import { Input, Label } from "../ContactForm/ContactForm.styled";
 
 class Filter extends Component {
   handleInput = (e) => {

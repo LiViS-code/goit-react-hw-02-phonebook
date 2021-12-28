@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../constants/Theme";
+import { theme } from "../../constants/Theme";
 
 const {
   colors: {
@@ -11,9 +11,8 @@ const {
     backgroundDisabledColor,
     disabledColor,
   },
+  transition: { timing, timingFunction },
   spacing,
-  timing,
-  timingFunction,
 } = theme;
 
 export const FormContacts = styled.form`

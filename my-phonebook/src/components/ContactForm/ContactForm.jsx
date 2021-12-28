@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { nanoid } from "nanoid";
 import { ToastContainer } from "react-toastify";
 import { IconContext } from "react-icons";
-import toastMsg from "../utils/toastMsg";
+import toastMsg from "../../utils/toastMsg";
 import { FcContacts, FcPhoneAndroid, FcAddDatabase } from "react-icons/fc";
 import { FormContacts, Label, Input, Button } from "./ContactForm.styled";
 
